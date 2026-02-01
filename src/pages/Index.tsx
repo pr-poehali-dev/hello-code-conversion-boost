@@ -400,18 +400,18 @@ const Index = () => {
                     transform: flippedCards[index] ? 'rotateY(180deg)' : 'rotateY(0deg)',
                   }}
                 >
-                  <Card className="border-4 border-gray-800 rounded-3xl bg-white overflow-hidden shadow-lg backface-hidden h-full" style={{ backfaceVisibility: 'hidden' }}>
+                  <Card className="border-4 border-gray-800 rounded-3xl bg-white overflow-hidden shadow-lg backface-hidden flex flex-col h-full" style={{ backfaceVisibility: 'hidden' }}>
                     <div className={`h-24 md:h-32 flex items-center justify-center bg-gradient-to-br ${course.color}`}>
                       <Icon name={course.icon} className="text-white drop-shadow-lg" size={48} />
                     </div>
                     <CardHeader className="pb-3">
                       <div className="flex justify-between items-start mb-2">
-                        <CardTitle className="text-lg md:text-xl font-bold leading-tight flex-1">{course.title}</CardTitle>
+                        <CardTitle className="text-lg md:text-xl font-bold leading-tight flex-1 min-h-[3.5rem] md:min-h-[3rem]">{course.title}</CardTitle>
                         <Badge className="bg-secondary text-white border-2 border-gray-800 text-xs px-2 py-1 whitespace-nowrap ml-2">{course.age}</Badge>
                       </div>
-                      <CardDescription className="text-sm md:text-base font-medium text-gray-700 line-clamp-2">{course.description}</CardDescription>
+                      <CardDescription className="text-sm md:text-base font-medium text-gray-700 line-clamp-2 min-h-[2.5rem] md:min-h-[3rem]">{course.description}</CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-2 pb-3">
+                    <CardContent className="space-y-2 pb-3 flex-grow">
                       <div className="flex items-center gap-2 text-sm md:text-base font-medium">
                         <Icon name="Clock" size={16} className="text-primary flex-shrink-0" />
                         <span>{course.duration}</span>
@@ -421,7 +421,7 @@ const Index = () => {
                         <span>{course.lessons}</span>
                       </div>
                     </CardContent>
-                    <CardFooter className="pt-0">
+                    <CardFooter className="pt-0 mt-auto">
                       <Button 
                         onClick={() => toggleCard(index)}
                         className="w-full bg-gradient-to-r from-primary to-orange-500 hover:opacity-90 font-bold text-sm md:text-base border-2 border-gray-800 rounded-full py-4 md:py-6 hover:scale-105 transition-all"
