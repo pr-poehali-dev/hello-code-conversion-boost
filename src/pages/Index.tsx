@@ -274,7 +274,7 @@ const Index = () => {
               <div className="relative ml-32">
                 <div className="w-80 h-96 rounded-[8rem] overflow-hidden border-8 border-black shadow-2xl">
                   <img 
-                    src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/8cf2b4e4-60f9-481e-95dd-169a08d2c83c.jpg"
+                    src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/53bb2540-7815-45d8-aacd-8768673be35b.jpg"
                     alt="Happy student"
                     className="w-full h-full object-cover"
                   />
