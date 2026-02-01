@@ -13,6 +13,12 @@ const Index = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const [flippedCards, setFlippedCards] = useState<Record<number, boolean>>({});
+
+  const toggleCard = (index: number) => {
+    setFlippedCards(prev => ({ ...prev, [index]: !prev[index] }));
+  };
+
   const courses = [
     {
       title: "Scratch Junior",
@@ -21,7 +27,8 @@ const Index = () => {
       icon: "Sparkles",
       duration: "3 месяца",
       lessons: "24 урока",
-      color: "from-purple-400 to-pink-400"
+      color: "from-purple-400 to-pink-400",
+      detailedDescription: "Визуальное программирование для дошкольников. Ребёнок научится создавать интерактивные истории и простые игры, развивая логическое мышление и креативность через яркие блоки кода."
     },
     {
       title: "Scratch",
@@ -30,7 +37,8 @@ const Index = () => {
       icon: "Gamepad2",
       duration: "4 месяца",
       lessons: "32 урока",
-      color: "from-blue-400 to-cyan-400"
+      color: "from-blue-400 to-cyan-400",
+      detailedDescription: "Создание полноценных 2D игр и анимаций. Изучаем циклы, условия, переменные через практику. Ваш ребёнок сделает портфолио из 8-10 собственных проектов."
     },
     {
       title: "Python для детей",
@@ -39,7 +47,8 @@ const Index = () => {
       icon: "Code2",
       duration: "6 месяцев",
       lessons: "48 уроков",
-      color: "from-orange-400 to-red-400"
+      color: "from-orange-400 to-red-400",
+      detailedDescription: "Первый настоящий язык программирования! Создаём консольные игры, чат-ботов, работаем с данными. Python — идеальный старт для будущих разработчиков и data-аналитиков."
     },
     {
       title: "Веб-разработка",
@@ -48,7 +57,8 @@ const Index = () => {
       icon: "Globe",
       duration: "6 месяцев",
       lessons: "48 уроков",
-      color: "from-green-400 to-emerald-400"
+      color: "from-green-400 to-emerald-400",
+      detailedDescription: "Создание полноценных сайтов с нуля. Изучаем HTML разметку, CSS стили, JavaScript интерактивность. К концу курса ребёнок запустит свой личный сайт-портфолио в интернете."
     }
   ];
 
@@ -214,131 +224,120 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <div className="bg-pink-50 border-b border-pink-200 py-3 px-4">
-        <div className="container mx-auto flex flex-wrap justify-between items-center text-sm">
-          <div className="flex items-center gap-8">
+        <div className="container mx-auto flex flex-wrap justify-between items-center text-xs md:text-sm gap-2">
+          <div className="flex flex-wrap items-center gap-3 md:gap-8">
             <div className="flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
               <Icon name="Phone" size={16} />
-              <span className="font-medium">+1 234 567 890</span>
+              <span className="font-medium hidden sm:inline">+1 234 567 890</span>
             </div>
             <div className="flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
               <Icon name="Mail" size={16} />
-              <span className="font-medium">info@hellocode.com</span>
+              <span className="font-medium hidden md:inline">info@hellocode.com</span>
             </div>
             <div className="flex items-center gap-2">
               <Icon name="Clock" size={16} />
-              <span className="font-medium">Mon-Fri: 8 am - 2pm</span>
+              <span className="font-medium hidden lg:inline">Mon-Fri: 8 am - 2pm</span>
             </div>
           </div>
-          <div className="flex items-center gap-5">
-            <Icon name="Facebook" size={20} className="cursor-pointer hover:text-primary transition-all hover:scale-110" />
-            <svg className="w-5 h-5 cursor-pointer hover:text-primary transition-all hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
+          <div className="flex items-center gap-3 md:gap-5">
+            <Icon name="Facebook" size={18} className="cursor-pointer hover:text-primary transition-all hover:scale-110" />
+            <svg className="w-4 h-4 md:w-5 md:h-5 cursor-pointer hover:text-primary transition-all hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
               <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
             </svg>
-            <Icon name="Instagram" size={20} className="cursor-pointer hover:text-primary transition-all hover:scale-110" />
+            <Icon name="Instagram" size={18} className="cursor-pointer hover:text-primary transition-all hover:scale-110" />
           </div>
         </div>
       </div>
 
       <header className="sticky top-0 bg-secondary z-50 shadow-lg">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 py-3 md:py-4">
           <div className="flex justify-between items-center">
-            <div className="text-3xl font-black text-white flex items-center gap-2">
-              <Icon name="Code2" size={32} />
-              Hello Code
+            <div className="text-xl md:text-3xl font-black text-white flex items-center gap-2">
+              <Icon name="Code2" size={28} className="md:w-8 md:h-8" />
+              <span className="hidden sm:inline">Hello Code</span>
+              <span className="sm:hidden">HC</span>
             </div>
-            <nav className="hidden md:flex gap-8 items-center">
-              <a href="#home" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105">Home</a>
-              <a href="#classes" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105">Classes</a>
-              <a href="#about" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105 underline decoration-4">About Us</a>
-              <a href="#gallery" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105">Gallery</a>
-              <a href="#news" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105">News</a>
-              <a href="#contact" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105">Contact</a>
+            <nav className="hidden lg:flex gap-4 xl:gap-8 items-center">
+              <a href="#home" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105 text-sm xl:text-base">Home</a>
+              <a href="#classes" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105 text-sm xl:text-base">Classes</a>
+              <a href="#about" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105 underline decoration-4 text-sm xl:text-base">About Us</a>
+              <a href="#gallery" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105 text-sm xl:text-base">Gallery</a>
+              <a href="#contact" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105 text-sm xl:text-base">Contact</a>
             </nav>
-            <div className="flex items-center gap-4">
-              <Icon name="User" size={26} className="text-white cursor-pointer hover:scale-110 transition-all" />
-              <div className="text-white font-semibold">
-                <span className="hover:underline cursor-pointer">Sign up</span>
-                <span className="mx-2">|</span>
-                <span className="hover:underline cursor-pointer">Log in</span>
-              </div>
-            </div>
+            <Button className="lg:hidden bg-primary hover:bg-primary/90 text-white font-bold text-sm px-4 py-2 rounded-full border-2 border-black">
+              Меню
+            </Button>
           </div>
         </div>
       </header>
 
-      <section id="about" className="relative bg-secondary py-24 px-4 overflow-hidden">
+      <section id="about" className="relative bg-secondary py-12 md:py-24 px-4 overflow-hidden">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle, rgba(255,200,100,0.4) 2px, transparent 2px)`,
-          backgroundSize: '40px 40px'
+          backgroundSize: '30px 30px'
         }}></div>
         
-        <div className="absolute top-20 left-12 animate-float">
-          <img src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/76514d28-43be-4fb3-a11f-2bed35ef632a.jpg" alt="Pencil" className="w-20 h-20 object-contain drop-shadow-2xl" />
+        <div className="absolute top-10 md:top-20 left-4 md:left-12 animate-float hidden sm:block">
+          <img src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/76514d28-43be-4fb3-a11f-2bed35ef632a.jpg" alt="Pencil" className="w-12 h-12 md:w-20 md:h-20 object-contain drop-shadow-2xl" />
         </div>
-        <div className="absolute top-40 left-32 animate-float" style={{ animationDelay: '0.5s' }}>
-          <Icon name="Star" size={32} className="text-purple-500 fill-purple-500 drop-shadow-lg" />
+        <div className="absolute top-20 md:top-40 left-16 md:left-32 animate-float" style={{ animationDelay: '0.5s' }}>
+          <Icon name="Star" size={20} className="md:w-8 md:h-8 text-purple-500 fill-purple-500 drop-shadow-lg" />
         </div>
-        <div className="absolute top-16 left-1/4 animate-float" style={{ animationDelay: '1s' }}>
+        <div className="absolute top-8 md:top-16 left-1/4 animate-float hidden md:block" style={{ animationDelay: '1s' }}>
           <Icon name="Star" size={24} className="text-purple-600 fill-purple-600" />
         </div>
-        <div className="absolute bottom-32 left-20 animate-float" style={{ animationDelay: '1.5s' }}>
-          <Icon name="Paperclip" size={56} className="text-orange-500 drop-shadow-lg" />
-        </div>
-        <div className="absolute top-1/2 left-16 animate-float" style={{ animationDelay: '0.8s' }}>
-          <img src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/a9c6743d-dd3a-43ce-9e19-589e8cba0d3f.jpg" alt="Rainbow pencil" className="w-24 h-24 object-contain drop-shadow-2xl" />
+        <div className="absolute bottom-16 md:bottom-32 left-8 md:left-20 animate-float hidden sm:block" style={{ animationDelay: '1.5s' }}>
+          <Icon name="Paperclip" size={40} className="md:w-14 md:h-14 text-orange-500 drop-shadow-lg" />
         </div>
 
-        <div className="absolute top-24 right-32 animate-float" style={{ animationDelay: '0.3s' }}>
-          <Icon name="Star" size={36} className="text-purple-500 fill-purple-500 drop-shadow-lg" />
+        <div className="absolute top-12 md:top-24 right-12 md:right-32 animate-float" style={{ animationDelay: '0.3s' }}>
+          <Icon name="Star" size={24} className="md:w-9 md:h-9 text-purple-500 fill-purple-500 drop-shadow-lg" />
         </div>
-        <div className="absolute top-16 right-1/4 animate-float" style={{ animationDelay: '1.2s' }}>
-          <img src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/44dfbc85-1d0b-4bf7-be34-15ab0659c76e.jpg" alt="Notebook" className="w-28 h-28 object-contain drop-shadow-2xl" />
+        <div className="absolute top-8 md:top-16 right-1/4 animate-float hidden md:block" style={{ animationDelay: '1.2s' }}>
+          <img src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/44dfbc85-1d0b-4bf7-be34-15ab0659c76e.jpg" alt="Notebook" className="w-20 h-20 md:w-28 md:h-28 object-contain drop-shadow-2xl" />
         </div>
-        <div className="absolute bottom-32 right-40 animate-float" style={{ animationDelay: '0.7s' }}>
-          <Icon name="AlarmClock" size={56} className="text-cyan-400 drop-shadow-lg" />
-        </div>
-        <div className="absolute bottom-48 right-24 animate-float" style={{ animationDelay: '1.8s' }}>
-          <Icon name="Star" size={28} className="text-pink-500 fill-pink-500" />
+        <div className="absolute bottom-16 md:bottom-32 right-16 md:right-40 animate-float hidden sm:block" style={{ animationDelay: '0.7s' }}>
+          <Icon name="AlarmClock" size={40} className="md:w-14 md:h-14 text-cyan-400 drop-shadow-lg" />
         </div>
 
         <div className="container mx-auto relative z-10">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8 animate-fade-in">
-              <div className="inline-block bg-white rounded-[3rem] px-10 py-5 border-4 border-black shadow-xl transform hover:scale-105 transition-all">
-                <h2 className="text-6xl font-black text-accent">About Us</h2>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+            <div className="space-y-4 md:space-y-8 animate-fade-in text-center md:text-left">
+              <div className="inline-block bg-white rounded-[2rem] md:rounded-[3rem] px-6 py-3 md:px-10 md:py-5 border-3 md:border-4 border-black shadow-xl transform hover:scale-105 transition-all">
+                <h2 className="text-4xl md:text-6xl font-black text-accent">About Us</h2>
               </div>
-              <p className="text-xl leading-relaxed text-gray-900 max-w-xl font-medium">
+              <p className="text-base md:text-xl leading-relaxed text-gray-900 max-w-xl font-medium">
                 Hello Code — это онлайн-школа программирования для детей от 5 до 14 лет. 
                 Мы учим создавать игры, сайты и приложения через игру и творчество. 
-                Наша миссия — вдохновить следующее поколение разработчиков и дать им навыки будущего!
+                Наша миссия — вдохновить следующее поколение разработчиков!
               </p>
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-white font-bold text-xl px-12 py-7 rounded-full border-4 border-black shadow-xl hover:scale-105 transition-all"
+                className="bg-primary hover:bg-primary/90 text-white font-bold text-base md:text-xl px-8 md:px-12 py-5 md:py-7 rounded-full border-3 md:border-4 border-black shadow-xl hover:scale-105 transition-all"
               >
                 See More
               </Button>
             </div>
 
-            <div className="relative animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <div className="absolute -top-12 left-8 w-40 h-40 animate-float" style={{ animationDelay: '0.5s' }}>
+            <div className="relative animate-fade-in mt-8 md:mt-0" style={{ animationDelay: '0.3s' }}>
+              <div className="absolute -top-6 md:-top-12 left-4 md:left-8 w-24 h-24 md:w-40 md:h-40 animate-float hidden sm:block" style={{ animationDelay: '0.5s' }}>
                 <img src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/25466d6e-4e74-4448-b6dd-0b5fbd54c588.jpg" alt="Calendar" className="w-full h-full object-contain drop-shadow-2xl" />
               </div>
               
-              <div className="absolute -top-8 right-12 w-32 h-32 animate-float" style={{ animationDelay: '1s' }}>
-                <Icon name="BookOpen" size={120} className="text-purple-400 drop-shadow-2xl" />
+              <div className="absolute -top-4 md:-top-8 right-8 md:right-12 w-20 h-20 md:w-32 md:h-32 animate-float hidden sm:block" style={{ animationDelay: '1s' }}>
+                <Icon name="BookOpen" size={80} className="md:w-30 md:h-30 text-purple-400 drop-shadow-2xl" />
               </div>
 
-              <div className="absolute bottom-24 -left-12 w-44 h-44 animate-float" style={{ animationDelay: '1.5s' }}>
+              <div className="absolute bottom-12 md:bottom-24 -left-6 md:-left-12 w-28 h-28 md:w-44 md:h-44 animate-float hidden sm:block" style={{ animationDelay: '1.5s' }}>
                 <img src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/7323de3a-130a-4e08-bbe3-bb763cda4581.jpg" alt="Backpack" className="w-full h-full object-contain drop-shadow-2xl" />
               </div>
 
-              <div className="absolute bottom-8 left-36 w-36 h-36 animate-float" style={{ animationDelay: '0.8s' }}>
+              <div className="absolute bottom-4 md:bottom-8 left-20 md:left-36 w-24 h-24 md:w-36 md:h-36 animate-float hidden sm:block" style={{ animationDelay: '0.8s' }}>
                 <img src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/db0ef4fd-6396-48a9-aa1d-1f19385f95a5.jpg" alt="Envelope" className="w-full h-full object-contain drop-shadow-2xl" />
               </div>
 
-              <div className="relative ml-32">
-                <div className="w-80 h-96 rounded-[8rem] overflow-hidden border-8 border-black shadow-2xl transform hover:scale-105 transition-all">
+              <div className="relative mx-auto md:ml-32 w-64 md:w-80">
+                <div className="w-64 h-80 md:w-80 md:h-96 rounded-[6rem] md:rounded-[8rem] overflow-hidden border-4 md:border-8 border-black shadow-2xl transform hover:scale-105 transition-all">
                   <img 
                     src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/53bb2540-7815-45d8-aacd-8768673be35b.jpg"
                     alt="Happy student"
@@ -351,15 +350,15 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-gradient-to-br from-pink-50 via-orange-50 to-yellow-50">
+      <section className="py-12 md:py-20 px-4 bg-gradient-to-br from-pink-50 via-orange-50 to-yellow-50">
         <div className="container mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
-            <h2 className="text-6xl font-black mb-6 text-gray-800">Почему Hello Code?</h2>
-            <p className="text-2xl text-muted-foreground font-medium">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-6xl font-black mb-4 md:mb-6 text-gray-800">Почему Hello Code?</h2>
+            <p className="text-lg md:text-2xl text-muted-foreground font-medium">
               Мы создаём идеальные условия для обучения программированию
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {features.map((feature, index) => (
               <Card key={index} className="border-4 border-gray-800 hover:shadow-2xl transition-all duration-300 rounded-3xl bg-white hover:-translate-y-2 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardHeader>
@@ -377,75 +376,127 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="classes" className="py-24 px-4 bg-white">
+      <section id="classes" className="py-12 md:py-24 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-20 animate-fade-in">
-            <h2 className="text-6xl font-black mb-6 text-gray-800">Наши курсы</h2>
-            <p className="text-2xl text-muted-foreground font-medium">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20 animate-fade-in">
+            <h2 className="text-4xl md:text-6xl font-black mb-4 md:mb-6 text-gray-800">Наши курсы</h2>
+            <p className="text-lg md:text-2xl text-muted-foreground font-medium">
               Программы для каждого возраста и уровня подготовки
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {courses.map((course, index) => (
-              <Card key={index} className="border-4 border-gray-800 hover:scale-105 transition-all duration-300 rounded-3xl bg-white overflow-hidden shadow-lg hover:shadow-2xl animate-fade-in" style={{ animationDelay: `${index * 0.15}s` }}>
-                <div className={`h-32 flex items-center justify-center bg-gradient-to-br ${course.color}`}>
-                  <Icon name={course.icon} className="text-white drop-shadow-lg" size={56} />
-                </div>
-                <CardHeader>
-                  <div className="flex justify-between items-start mb-3">
-                    <CardTitle className="text-2xl font-bold">{course.title}</CardTitle>
-                    <Badge className="bg-secondary text-white border-2 border-gray-800 text-sm px-3 py-1">{course.age}</Badge>
-                  </div>
-                  <CardDescription className="text-base font-medium text-gray-700">{course.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="flex items-center gap-2 text-base font-medium">
-                    <Icon name="Clock" size={18} className="text-primary" />
-                    <span>{course.duration}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-base font-medium">
-                    <Icon name="BookOpen" size={18} className="text-primary" />
-                    <span>{course.lessons}</span>
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-gradient-to-r from-primary to-orange-500 hover:opacity-90 font-bold text-base border-2 border-gray-800 rounded-full py-6 hover:scale-105 transition-all">
-                    Узнать больше
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+              <div 
+                key={index} 
+                className="perspective-1000 animate-fade-in" 
+                style={{ animationDelay: `${index * 0.15}s` }}
+              >
+                <div 
+                  className={`relative w-full transition-all duration-500 transform-style-3d cursor-pointer ${
+                    flippedCards[index] ? 'rotate-y-180' : ''
+                  }`}
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    transform: flippedCards[index] ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                  }}
+                >
+                  <Card className="border-4 border-gray-800 rounded-3xl bg-white overflow-hidden shadow-lg backface-hidden h-full" style={{ backfaceVisibility: 'hidden' }}>
+                    <div className={`h-24 md:h-32 flex items-center justify-center bg-gradient-to-br ${course.color}`}>
+                      <Icon name={course.icon} className="text-white drop-shadow-lg" size={48} />
+                    </div>
+                    <CardHeader className="pb-3">
+                      <div className="flex justify-between items-start mb-2">
+                        <CardTitle className="text-lg md:text-xl font-bold leading-tight flex-1">{course.title}</CardTitle>
+                        <Badge className="bg-secondary text-white border-2 border-gray-800 text-xs px-2 py-1 whitespace-nowrap ml-2">{course.age}</Badge>
+                      </div>
+                      <CardDescription className="text-sm md:text-base font-medium text-gray-700 line-clamp-2">{course.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-2 pb-3">
+                      <div className="flex items-center gap-2 text-sm md:text-base font-medium">
+                        <Icon name="Clock" size={16} className="text-primary flex-shrink-0" />
+                        <span>{course.duration}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm md:text-base font-medium">
+                        <Icon name="BookOpen" size={16} className="text-primary flex-shrink-0" />
+                        <span>{course.lessons}</span>
+                      </div>
+                    </CardContent>
+                    <CardFooter className="pt-0">
+                      <Button 
+                        onClick={() => toggleCard(index)}
+                        className="w-full bg-gradient-to-r from-primary to-orange-500 hover:opacity-90 font-bold text-sm md:text-base border-2 border-gray-800 rounded-full py-4 md:py-6 hover:scale-105 transition-all"
+                      >
+                        Узнать больше
+                      </Button>
+                    </CardFooter>
+                  </Card>
 
-      <section className="py-20 px-4 bg-gradient-to-br from-cyan-50 via-blue-50 to-purple-50">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-12">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center animate-fade-in hover:scale-110 transition-all" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="flex justify-center mb-4">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center border-4 border-gray-800 shadow-lg">
-                    <Icon name={stat.icon} size={36} className="text-white" />
-                  </div>
+                  <Card 
+                    className="absolute top-0 left-0 w-full h-full border-4 border-gray-800 rounded-3xl bg-white overflow-hidden shadow-lg backface-hidden" 
+                    style={{ 
+                      backfaceVisibility: 'hidden',
+                      transform: 'rotateY(180deg)'
+                    }}
+                  >
+                    <div className={`h-16 md:h-20 flex items-center justify-center bg-gradient-to-br ${course.color}`}>
+                      <CardTitle className="text-white text-lg md:text-xl font-bold text-center px-4">{course.title}</CardTitle>
+                    </div>
+                    <CardContent className="p-4 md:p-6 flex flex-col justify-between h-[calc(100%-4rem)] md:h-[calc(100%-5rem)]">
+                      <div>
+                        <div className="flex items-center justify-between mb-3 md:mb-4">
+                          <Badge className="bg-secondary text-white border-2 border-gray-800 text-xs">{course.age}</Badge>
+                          <div className="text-xs md:text-sm text-gray-600 font-semibold">{course.duration}</div>
+                        </div>
+                        <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-3 md:mb-4">
+                          {course.detailedDescription}
+                        </p>
+                        <div className="flex items-center gap-2 text-xs md:text-sm text-gray-600">
+                          <Icon name="BookOpen" size={14} className="text-primary" />
+                          <span className="font-medium">{course.lessons}</span>
+                        </div>
+                      </div>
+                      <Button 
+                        onClick={() => toggleCard(index)}
+                        className="w-full bg-gray-800 hover:bg-gray-700 text-white font-bold text-sm md:text-base border-2 border-gray-800 rounded-full py-3 md:py-4 mt-3 md:mt-4"
+                      >
+                        Назад
+                      </Button>
+                    </CardContent>
+                  </Card>
                 </div>
-                <div className="text-6xl font-black text-primary mb-3">{stat.value}</div>
-                <div className="text-xl font-bold text-gray-700">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-24 px-4 bg-white">
+      <section className="py-12 md:py-20 px-4 bg-gradient-to-br from-cyan-50 via-blue-50 to-purple-50">
         <div className="container mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-20 animate-fade-in">
-            <h2 className="text-6xl font-black mb-6 text-gray-800">Преимущества обучения</h2>
-            <p className="text-2xl text-muted-foreground font-medium">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center animate-fade-in hover:scale-110 transition-all" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="flex justify-center mb-3 md:mb-4">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center border-3 md:border-4 border-gray-800 shadow-lg">
+                    <Icon name={stat.icon} size={28} className="md:w-9 md:h-9 text-white" />
+                  </div>
+                </div>
+                <div className="text-4xl md:text-6xl font-black text-primary mb-2 md:mb-3">{stat.value}</div>
+                <div className="text-sm md:text-xl font-bold text-gray-700">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 md:py-24 px-4 bg-white">
+        <div className="container mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20 animate-fade-in">
+            <h2 className="text-4xl md:text-6xl font-black mb-4 md:mb-6 text-gray-800">Преимущества обучения</h2>
+            <p className="text-lg md:text-2xl text-muted-foreground font-medium">
               Что получит ваш ребёнок в Hello Code
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {benefits.map((benefit, index) => (
               <div key={index} className="text-center p-8 rounded-3xl bg-gradient-to-br from-orange-50 to-pink-50 border-4 border-gray-800 hover:shadow-xl transition-all hover:-translate-y-2 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-6 border-4 border-gray-800 shadow-lg">
@@ -459,15 +510,15 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-24 px-4 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100">
+      <section className="py-12 md:py-24 px-4 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100">
         <div className="container mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-20 animate-fade-in">
-            <h2 className="text-6xl font-black mb-6 text-gray-800">Наши преподаватели</h2>
-            <p className="text-2xl text-muted-foreground font-medium">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20 animate-fade-in">
+            <h2 className="text-4xl md:text-6xl font-black mb-4 md:mb-6 text-gray-800">Наши преподаватели</h2>
+            <p className="text-lg md:text-2xl text-muted-foreground font-medium">
               Опытные специалисты с любовью к детям
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
             {teachers.map((teacher, index) => (
               <Card key={index} className="border-4 border-gray-800 rounded-3xl overflow-hidden hover:scale-105 transition-all shadow-lg bg-white animate-fade-in" style={{ animationDelay: `${index * 0.15}s` }}>
                 <div className="h-48 bg-gradient-to-br from-primary to-accent flex items-center justify-center">
@@ -487,15 +538,15 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="gallery" className="py-24 px-4 bg-white">
+      <section id="gallery" className="py-12 md:py-24 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-20 animate-fade-in">
-            <h2 className="text-6xl font-black mb-6 text-gray-800">Галерея работ учеников</h2>
-            <p className="text-2xl text-muted-foreground font-medium">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20 animate-fade-in">
+            <h2 className="text-4xl md:text-6xl font-black mb-4 md:mb-6 text-gray-800">Галерея работ учеников</h2>
+            <p className="text-lg md:text-2xl text-muted-foreground font-medium">
               Посмотрите, какие крутые проекты создают наши студенты!
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
             <Card className="border-4 border-gray-800 rounded-3xl overflow-hidden hover:scale-105 transition-all shadow-lg animate-fade-in">
               <img 
                 src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/9e261ce0-2dc6-4546-920e-bf5fd25d8243.jpg"
@@ -530,7 +581,7 @@ const Index = () => {
               </CardHeader>
             </Card>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             <Card className="border-4 border-gray-800 rounded-3xl overflow-hidden hover:scale-105 transition-all shadow-lg animate-fade-in" style={{ animationDelay: '0.3s' }}>
               <img 
                 src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/9e3842c9-e584-43c5-8e1c-8b5810745b1a.jpg"
@@ -574,15 +625,15 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="pricing" className="py-24 px-4 bg-gradient-to-br from-orange-50 via-pink-50 to-purple-50">
+      <section id="pricing" className="py-12 md:py-24 px-4 bg-gradient-to-br from-orange-50 via-pink-50 to-purple-50">
         <div className="container mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-20 animate-fade-in">
-            <h2 className="text-6xl font-black mb-6 text-gray-800">Тарифные планы</h2>
-            <p className="text-2xl text-muted-foreground font-medium">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20 animate-fade-in">
+            <h2 className="text-4xl md:text-6xl font-black mb-4 md:mb-6 text-gray-800">Тарифные планы</h2>
+            <p className="text-lg md:text-2xl text-muted-foreground font-medium">
               Выберите удобный формат обучения для вашего ребёнка
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 max-w-6xl mx-auto">
             {plans.map((plan, index) => (
               <Card 
                 key={index} 
@@ -637,15 +688,15 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-24 px-4 bg-white">
+      <section className="py-12 md:py-24 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-20 animate-fade-in">
-            <h2 className="text-6xl font-black mb-6 text-gray-800">Отзывы родителей</h2>
-            <p className="text-2xl text-muted-foreground font-medium">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20 animate-fade-in">
+            <h2 className="text-4xl md:text-6xl font-black mb-4 md:mb-6 text-gray-800">Отзывы родителей</h2>
+            <p className="text-lg md:text-2xl text-muted-foreground font-medium">
               Что говорят о нас родители наших учеников
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
             {reviews.map((review, index) => (
               <Card key={index} className="border-4 border-gray-800 hover:shadow-2xl transition-all duration-300 rounded-3xl bg-gradient-to-br from-yellow-50 to-orange-50 hover:-translate-y-2 animate-fade-in" style={{ animationDelay: `${index * 0.15}s` }}>
                 <CardHeader>
@@ -671,11 +722,11 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-24 px-4 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100">
+      <section id="contact" className="py-12 md:py-24 px-4 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-20 animate-fade-in">
-            <h2 className="text-6xl font-black mb-6 text-gray-800">Запишитесь на пробный урок</h2>
-            <p className="text-2xl text-muted-foreground font-medium">
+          <div className="text-center mb-12 md:mb-20 animate-fade-in">
+            <h2 className="text-4xl md:text-6xl font-black mb-4 md:mb-6 text-gray-800">Запишитесь на пробный урок</h2>
+            <p className="text-lg md:text-2xl text-muted-foreground font-medium">
               Бесплатное первое занятие для знакомства с платформой
             </p>
           </div>
