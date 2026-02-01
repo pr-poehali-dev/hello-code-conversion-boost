@@ -208,33 +208,33 @@ const Index = () => {
           backgroundSize: '30px 30px'
         }}></div>
         
-        <div className="absolute top-20 left-10 animate-float">
-          <Icon name="Pencil" size={48} className="text-blue-500" />
+        <div className="absolute top-16 left-8 animate-float">
+          <Icon name="Pencil" size={44} className="text-blue-500" />
         </div>
-        <div className="absolute top-40 left-32 animate-float" style={{ animationDelay: '0.5s' }}>
-          <Icon name="Star" size={32} className="text-purple-500 fill-purple-500" />
-        </div>
-        <div className="absolute top-10 right-20 animate-float" style={{ animationDelay: '1s' }}>
-          <Icon name="Star" size={24} className="text-purple-600 fill-purple-600" />
-        </div>
-        <div className="absolute bottom-20 left-20 animate-float" style={{ animationDelay: '1.5s' }}>
-          <Icon name="Ruler" size={40} className="text-yellow-500" />
-        </div>
-        <div className="absolute top-60 left-40 animate-float" style={{ animationDelay: '0.8s' }}>
-          <Icon name="Paperclip" size={36} className="text-orange-600" />
-        </div>
-
-        <div className="absolute top-32 right-32 animate-float" style={{ animationDelay: '0.3s' }}>
+        <div className="absolute top-32 left-24 animate-float" style={{ animationDelay: '0.5s' }}>
           <Icon name="Star" size={28} className="text-purple-500 fill-purple-500" />
         </div>
-        <div className="absolute top-20 right-64 animate-float" style={{ animationDelay: '1.2s' }}>
-          <Icon name="Paperclip" size={32} className="text-orange-500" />
+        <div className="absolute top-12 left-1/4 animate-float" style={{ animationDelay: '1s' }}>
+          <Icon name="Star" size={24} className="text-purple-600 fill-purple-600" />
         </div>
-        <div className="absolute bottom-32 right-40 animate-float" style={{ animationDelay: '0.7s' }}>
-          <Icon name="Alarm" size={56} className="text-cyan-500" />
+        <div className="absolute bottom-24 left-16 animate-float" style={{ animationDelay: '1.5s' }}>
+          <Icon name="Ruler" size={48} className="text-yellow-500" />
         </div>
-        <div className="absolute bottom-40 right-20 animate-float" style={{ animationDelay: '1.8s' }}>
-          <Icon name="Bell" size={40} className="text-pink-500" />
+        <div className="absolute top-1/2 left-12 animate-float" style={{ animationDelay: '0.8s' }}>
+          <Icon name="Paperclip" size={40} className="text-orange-600" />
+        </div>
+
+        <div className="absolute top-20 right-24 animate-float" style={{ animationDelay: '0.3s' }}>
+          <Icon name="Star" size={32} className="text-purple-500 fill-purple-500" />
+        </div>
+        <div className="absolute top-12 right-1/4 animate-float" style={{ animationDelay: '1.2s' }}>
+          <Icon name="Paperclip" size={36} className="text-orange-500" />
+        </div>
+        <div className="absolute bottom-28 right-32 animate-float" style={{ animationDelay: '0.7s' }}>
+          <Icon name="Alarm" size={52} className="text-cyan-500" />
+        </div>
+        <div className="absolute bottom-40 right-16 animate-float" style={{ animationDelay: '1.8s' }}>
+          <Icon name="Bell" size={44} className="text-pink-500" />
         </div>
 
         <div className="container mx-auto relative z-10">
@@ -255,20 +255,20 @@ const Index = () => {
             </div>
 
             <div className="relative">
-              <div className="absolute top-16 left-8 w-40 h-40 animate-float" style={{ animationDelay: '0.5s' }}>
+              <div className="absolute -top-8 left-4 w-36 h-36 animate-float" style={{ animationDelay: '0.5s' }}>
                 <img src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/1f2eac2c-19c1-4af8-b62a-6ae8aab4df2b.jpg" alt="Coding" className="w-full h-full object-contain drop-shadow-xl" />
               </div>
               
-              <div className="absolute top-4 right-20 w-32 h-32 animate-float" style={{ animationDelay: '1s' }}>
-                <Icon name="BookOpen" size={120} className="text-purple-400" />
+              <div className="absolute -top-4 right-12 w-28 h-28 animate-float" style={{ animationDelay: '1s' }}>
+                <Icon name="BookOpen" size={110} className="text-purple-400" />
               </div>
 
-              <div className="absolute bottom-32 left-4 w-44 h-44 animate-float" style={{ animationDelay: '1.5s' }}>
-                <Icon name="Backpack" size={160} className="text-cyan-400" />
+              <div className="absolute bottom-24 -left-8 w-40 h-40 animate-float" style={{ animationDelay: '1.5s' }}>
+                <Icon name="Backpack" size={150} className="text-cyan-400" />
               </div>
 
-              <div className="absolute bottom-16 left-48 w-36 h-36 animate-float" style={{ animationDelay: '0.8s' }}>
-                <Icon name="Mail" size={130} className="text-yellow-400" />
+              <div className="absolute bottom-8 left-36 w-32 h-32 animate-float" style={{ animationDelay: '0.8s' }}>
+                <Icon name="Mail" size={120} className="text-yellow-400" />
               </div>
 
               <div className="relative ml-32">
