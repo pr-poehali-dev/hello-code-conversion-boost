@@ -404,23 +404,25 @@ const Index = () => {
                     <div className={`h-24 md:h-32 flex items-center justify-center bg-gradient-to-br ${course.color}`}>
                       <Icon name={course.icon} className="text-white drop-shadow-lg" size={48} />
                     </div>
-                    <CardHeader className="pb-3">
-                      <div className="flex justify-between items-start mb-2">
-                        <CardTitle className="text-lg md:text-xl font-bold leading-tight flex-1 min-h-[3.5rem] md:min-h-[3rem]">{course.title}</CardTitle>
-                        <Badge className="bg-secondary text-white border-2 border-gray-800 text-xs px-2 py-1 whitespace-nowrap ml-2">{course.age}</Badge>
-                      </div>
-                      <CardDescription className="text-sm md:text-base font-medium text-gray-700 line-clamp-2 min-h-[2.5rem] md:min-h-[3rem]">{course.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-2 pb-3 flex-grow">
-                      <div className="flex items-center gap-2 text-sm md:text-base font-medium">
-                        <Icon name="Clock" size={16} className="text-primary flex-shrink-0" />
-                        <span>{course.duration}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm md:text-base font-medium">
-                        <Icon name="BookOpen" size={16} className="text-primary flex-shrink-0" />
-                        <span>{course.lessons}</span>
-                      </div>
-                    </CardContent>
+                    <div className="flex-grow flex flex-col">
+                      <CardHeader className="pb-3">
+                        <div className="flex justify-between items-start mb-2">
+                          <CardTitle className="text-lg md:text-xl font-bold leading-tight flex-1 h-14 md:h-12">{course.title}</CardTitle>
+                          <Badge className="bg-secondary text-white border-2 border-gray-800 text-xs px-2 py-1 whitespace-nowrap ml-2 h-fit">{course.age}</Badge>
+                        </div>
+                        <CardDescription className="text-sm md:text-base font-medium text-gray-700 h-12 md:h-12">{course.description}</CardDescription>
+                      </CardHeader>
+                      <CardContent className="space-y-2 pb-3 mt-auto">
+                        <div className="flex items-center gap-2 text-sm md:text-base font-medium">
+                          <Icon name="Clock" size={16} className="text-primary flex-shrink-0" />
+                          <span>{course.duration}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm md:text-base font-medium">
+                          <Icon name="BookOpen" size={16} className="text-primary flex-shrink-0" />
+                          <span>{course.lessons}</span>
+                        </div>
+                      </CardContent>
+                    </div>
                     <CardFooter className="pt-0 mt-auto">
                       <Button 
                         onClick={() => toggleCard(index)}
