@@ -202,6 +202,86 @@ const Index = () => {
         </div>
       </header>
 
+      <section id="home" className="relative bg-secondary py-20 px-4 overflow-hidden min-h-[600px]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle, rgba(255,140,0,0.3) 1px, transparent 1px)`,
+          backgroundSize: '30px 30px'
+        }}></div>
+        
+        <div className="absolute top-20 left-12 animate-float">
+          <Icon name="Pencil" size={44} className="text-blue-500" />
+        </div>
+        <div className="absolute top-40 left-32 animate-float" style={{ animationDelay: '0.5s' }}>
+          <Icon name="Star" size={28} className="text-purple-500 fill-purple-500" />
+        </div>
+        <div className="absolute bottom-32 left-20 animate-float" style={{ animationDelay: '1.5s' }}>
+          <Icon name="Ruler" size={48} className="text-yellow-500" />
+        </div>
+        <div className="absolute top-1/2 left-16 animate-float" style={{ animationDelay: '0.8s' }}>
+          <Icon name="Paperclip" size={40} className="text-orange-600" />
+        </div>
+
+        <div className="absolute top-24 right-32 animate-float" style={{ animationDelay: '0.3s' }}>
+          <Icon name="Star" size={32} className="text-purple-500 fill-purple-500" />
+        </div>
+        <div className="absolute bottom-32 right-40 animate-float" style={{ animationDelay: '0.7s' }}>
+          <Icon name="Alarm" size={52} className="text-cyan-500" />
+        </div>
+        <div className="absolute bottom-48 right-24 animate-float" style={{ animationDelay: '1.8s' }}>
+          <Icon name="Bell" size={44} className="text-pink-500" />
+        </div>
+
+        <div className="container mx-auto relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h1 className="text-7xl font-black text-white leading-tight">
+                Welcome to
+                <br />
+                <span className="text-accent">Hello Code</span>
+              </h1>
+              <p className="text-xl text-white/90 max-w-xl leading-relaxed">
+                Онлайн-школа программирования для детей 5-14 лет. 
+                Учим создавать игры, сайты и приложения через творчество и игру.
+              </p>
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-white font-bold text-lg px-10 py-7 rounded-full border-4 border-black shadow-xl"
+              >
+                Записаться на пробный урок 🚀
+              </Button>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -top-8 left-4 w-36 h-36 animate-float" style={{ animationDelay: '0.5s' }}>
+                <img src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/1f2eac2c-19c1-4af8-b62a-6ae8aab4df2b.jpg" alt="Coding" className="w-full h-full object-contain drop-shadow-xl" />
+              </div>
+              
+              <div className="absolute -top-4 right-12 w-28 h-28 animate-float" style={{ animationDelay: '1s' }}>
+                <Icon name="BookOpen" size={110} className="text-purple-400" />
+              </div>
+
+              <div className="absolute bottom-24 -left-8 w-40 h-40 animate-float" style={{ animationDelay: '1.5s' }}>
+                <Icon name="Backpack" size={150} className="text-cyan-400" />
+              </div>
+
+              <div className="absolute bottom-8 left-36 w-32 h-32 animate-float" style={{ animationDelay: '0.8s' }}>
+                <Icon name="Mail" size={120} className="text-yellow-400" />
+              </div>
+
+              <div className="relative ml-32">
+                <div className="w-80 h-96 rounded-[8rem] overflow-hidden border-8 border-black shadow-2xl">
+                  <img 
+                    src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/53bb2540-7815-45d8-aacd-8768673be35b.jpg"
+                    alt="Happy student"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="about" className="relative bg-secondary py-20 px-4 overflow-hidden">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle, rgba(255,140,0,0.3) 1px, transparent 1px)`,
