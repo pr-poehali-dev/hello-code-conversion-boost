@@ -6,230 +6,304 @@ import Icon from "@/components/ui/icon";
 const Index = () => {
   const courses = [
     {
+      title: "Scratch Junior",
+      description: "Первые шаги в программировании",
+      age: "5-7 лет",
+      icon: "Sparkles",
+      duration: "3 месяца",
+      lessons: "24 урока"
+    },
+    {
       title: "Scratch",
       description: "Создание игр и анимации",
       age: "7-9 лет",
       icon: "Gamepad2",
-      color: "bg-gradient-to-br from-purple-400 to-pink-400"
+      duration: "4 месяца",
+      lessons: "32 урока"
     },
     {
-      title: "Python",
+      title: "Python для детей",
       description: "Основы программирования",
       age: "10-12 лет",
       icon: "Code2",
-      color: "bg-gradient-to-br from-blue-400 to-cyan-400"
+      duration: "6 месяцев",
+      lessons: "48 уроков"
     },
     {
       title: "Веб-разработка",
       description: "HTML, CSS, JavaScript",
       age: "12-14 лет",
       icon: "Globe",
-      color: "bg-gradient-to-br from-orange-400 to-red-400"
-    }
-  ];
-
-  const teachers = [
-    {
-      name: "Анна Петрова",
-      role: "Senior преподаватель Python",
-      experience: "8 лет опыта",
-      image: "https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/e5adc7b5-0943-4ba8-a8b8-a9d8ce54a286.jpg"
-    },
-    {
-      name: "Дмитрий Иванов",
-      role: "Эксперт по Scratch",
-      experience: "5 лет опыта",
-      image: "https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/3d741dd4-b853-4fbd-a821-fe317e5139c4.jpg"
+      duration: "6 месяцев",
+      lessons: "48 уроков"
     }
   ];
 
   const plans = [
     {
-      name: "Старт",
-      price: "3 990",
-      period: "4 занятия",
+      name: "Пробный урок",
+      price: "Бесплатно",
+      period: "1 занятие",
       features: [
-        "1 занятие в неделю",
-        "Группа до 8 детей",
-        "Доступ к платформе",
-        "Сертификат об окончании"
+        "Знакомство с платформой",
+        "Оценка уровня ребёнка",
+        "Индивидуальная консультация",
+        "Подбор программы обучения"
       ],
-      popular: false
+      popular: false,
+      cta: "Записаться бесплатно"
     },
     {
-      name: "Оптимальный",
-      price: "7 490",
-      period: "8 занятий",
+      name: "Стандарт",
+      price: "6 990",
+      period: "8 занятий / месяц",
       features: [
-        "2 занятия в неделю",
+        "2 занятия в неделю по 60 мин",
         "Группа до 6 детей",
-        "Доступ к платформе",
-        "Персональный проект",
-        "Обратная связь от ментора",
+        "Доступ к платформе 24/7",
+        "Домашние задания",
+        "Обратная связь от педагога",
         "Сертификат об окончании"
       ],
-      popular: true
+      popular: true,
+      cta: "Выбрать тариф"
     },
     {
-      name: "Профи",
-      price: "13 990",
-      period: "16 занятий",
+      name: "Интенсив",
+      price: "12 990",
+      period: "16 занятий / месяц",
       features: [
-        "2 занятия в неделю",
-        "Группа до 4 детей",
-        "Безлимитный доступ к платформе",
-        "3 персональных проекта",
+        "4 занятия в неделю по 60 мин",
+        "Мини-группа до 4 детей",
+        "Доступ к платформе 24/7",
+        "Персональные проекты",
         "Личный ментор",
         "Участие в хакатонах",
+        "Приоритетная поддержка",
         "Сертификат об окончании"
       ],
-      popular: false
+      popular: false,
+      cta: "Выбрать тариф"
+    }
+  ];
+
+  const stats = [
+    { value: "2500+", label: "Учеников" },
+    { value: "25+", label: "Преподавателей" },
+    { value: "15", label: "Курсов" },
+    { value: "99%", label: "Довольных родителей" }
+  ];
+
+  const features = [
+    {
+      icon: "Laptop",
+      title: "Онлайн-обучение",
+      description: "Занимайтесь из любой точки мира в удобное время"
+    },
+    {
+      icon: "Users",
+      title: "Малые группы",
+      description: "Максимум внимания каждому ребёнку"
+    },
+    {
+      icon: "Trophy",
+      title: "Реальные проекты",
+      description: "Портфолио из собственных игр и приложений"
+    },
+    {
+      icon: "Award",
+      title: "Сертификаты",
+      description: "Документ об окончании курса"
+    },
+    {
+      icon: "Headphones",
+      title: "Поддержка 24/7",
+      description: "Всегда на связи для помощи"
+    },
+    {
+      icon: "Rocket",
+      title: "Современные методы",
+      description: "Игровой формат и геймификация"
     }
   ];
 
   const reviews = [
     {
-      name: "Елена Смирнова",
-      text: "Мой сын в восторге! За 2 месяца создал свою первую игру. Преподаватели умеют заинтересовать детей.",
+      name: "Мария Соколова",
+      role: "Мама Артёма, 9 лет",
+      text: "Сын в восторге! За 3 месяца создал уже 5 игр в Scratch. Теперь мечтает стать разработчиком игр. Спасибо педагогам!",
       rating: 5
     },
     {
-      name: "Александр Козлов",
-      text: "Отличная школа! Дочь научилась программировать на Python и теперь хочет стать разработчиком.",
+      name: "Дмитрий Волков",
+      role: "Папа Софии, 11 лет",
+      text: "Отличная школа! Дочь научилась программировать на Python и участвовала в хакатоне. Очень довольны результатами.",
       rating: 5
     },
     {
-      name: "Ирина Волкова",
-      text: "Занятия проходят интересно, ребенок ждет каждый урок с нетерпением. Видим реальный прогресс!",
+      name: "Елена Петрова",
+      role: "Мама Максима, 8 лет",
+      text: "Ребёнок ждёт каждое занятие с нетерпением! Преподаватели умеют найти подход к детям. Видим реальный прогресс.",
       rating: 5
     }
   ];
 
   return (
     <div className="min-h-screen">
-      <header className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b">
+      <div className="bg-pink-50 border-b border-pink-100 py-2 px-4">
+        <div className="container mx-auto flex flex-wrap justify-between items-center text-sm">
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2">
+              <Icon name="Phone" size={16} />
+              <span>+1 234 567 890</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Icon name="Mail" size={16} />
+              <span>info@elemschool.com</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Icon name="Clock" size={16} />
+              <span>Mon-Fri: 8 am - 2pm</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <Icon name="Facebook" size={18} className="cursor-pointer hover:text-primary" />
+            <svg className="w-4 h-4 cursor-pointer hover:text-primary" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+            </svg>
+            <Icon name="Instagram" size={18} className="cursor-pointer hover:text-primary" />
+          </div>
+        </div>
+      </div>
+
+      <header className="sticky top-0 bg-secondary z-50 shadow-md">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <div className="text-3xl font-black text-white">
               Hello Code
             </div>
-            <nav className="hidden md:flex gap-8">
-              <a href="#about" className="hover:text-primary transition-colors">О школе</a>
-              <a href="#courses" className="hover:text-primary transition-colors">Курсы</a>
-              <a href="#teachers" className="hover:text-primary transition-colors">Преподаватели</a>
-              <a href="#pricing" className="hover:text-primary transition-colors">Тарифы</a>
-              <a href="#reviews" className="hover:text-primary transition-colors">Отзывы</a>
-              <a href="#contacts" className="hover:text-primary transition-colors">Контакты</a>
+            <nav className="hidden md:flex gap-8 items-center">
+              <a href="#home" className="text-white hover:text-pink-100 transition-colors font-medium">Home</a>
+              <a href="#classes" className="text-white hover:text-pink-100 transition-colors font-medium">Classes</a>
+              <a href="#about" className="text-white hover:text-pink-100 transition-colors font-medium underline decoration-4">About Us</a>
+              <a href="#gallery" className="text-white hover:text-pink-100 transition-colors font-medium">Gallery</a>
+              <a href="#news" className="text-white hover:text-pink-100 transition-colors font-medium">News</a>
+              <a href="#contact" className="text-white hover:text-pink-100 transition-colors font-medium">Contact</a>
             </nav>
-            <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
-              Записаться
-            </Button>
+            <div className="flex items-center gap-4">
+              <Icon name="User" size={24} className="text-white cursor-pointer" />
+              <div className="text-white">
+                <span className="hover:underline cursor-pointer font-medium">Sign up</span>
+                <span className="mx-2">|</span>
+                <span className="hover:underline cursor-pointer font-medium">Log in</span>
+              </div>
+            </div>
           </div>
         </div>
       </header>
 
-      <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzg4ODgiIHN0cm9rZS13aWR0aD0iMC41Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-30"></div>
+      <section id="about" className="relative bg-secondary py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle, rgba(255,140,0,0.3) 1px, transparent 1px)`,
+          backgroundSize: '30px 30px'
+        }}></div>
+        
+        <div className="absolute top-20 left-10 animate-float">
+          <Icon name="Pencil" size={48} className="text-blue-500" />
+        </div>
+        <div className="absolute top-40 left-32 animate-float" style={{ animationDelay: '0.5s' }}>
+          <Icon name="Star" size={32} className="text-purple-500 fill-purple-500" />
+        </div>
+        <div className="absolute top-10 right-20 animate-float" style={{ animationDelay: '1s' }}>
+          <Icon name="Star" size={24} className="text-purple-600 fill-purple-600" />
+        </div>
+        <div className="absolute bottom-20 left-20 animate-float" style={{ animationDelay: '1.5s' }}>
+          <Icon name="Ruler" size={40} className="text-yellow-500" />
+        </div>
+        <div className="absolute top-60 left-40 animate-float" style={{ animationDelay: '0.8s' }}>
+          <Icon name="Paperclip" size={36} className="text-orange-600" />
+        </div>
+
+        <div className="absolute top-32 right-32 animate-float" style={{ animationDelay: '0.3s' }}>
+          <Icon name="Star" size={28} className="text-purple-500 fill-purple-500" />
+        </div>
+        <div className="absolute top-20 right-64 animate-float" style={{ animationDelay: '1.2s' }}>
+          <Icon name="Paperclip" size={32} className="text-orange-500" />
+        </div>
+        <div className="absolute bottom-32 right-40 animate-float" style={{ animationDelay: '0.7s' }}>
+          <Icon name="Alarm" size={56} className="text-cyan-500" />
+        </div>
+        <div className="absolute bottom-40 right-20 animate-float" style={{ animationDelay: '1.8s' }}>
+          <Icon name="Bell" size={40} className="text-pink-500" />
+        </div>
+
         <div className="container mx-auto relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fade-in">
-              <Badge className="bg-gradient-to-r from-primary to-accent text-white border-0">
-                Онлайн-школа программирования
-              </Badge>
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-                Научим вашего ребёнка{" "}
-                <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
-                  программировать
-                </span>
-              </h1>
-              <p className="text-xl text-muted-foreground">
-                Курсы для детей от 7 до 14 лет. Создавайте игры, сайты и приложения в игровой форме!
+            <div className="space-y-6">
+              <div className="inline-block bg-white rounded-[2rem] px-8 py-4 border-4 border-black">
+                <h2 className="text-5xl font-black text-accent">About Us</h2>
+              </div>
+              <p className="text-lg leading-relaxed text-gray-800 max-w-xl">
+                Hello Code — это онлайн-школа программирования для детей от 5 до 14 лет. Мы учим создавать игры, сайты и приложения через игру и творчество. Наша миссия — вдохновить следующее поколение разработчиков!
               </p>
-              <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
-                  Записаться на пробный урок
-                  <Icon name="ArrowRight" className="ml-2" size={20} />
-                </Button>
-                <Button size="lg" variant="outline">
-                  Смотреть курсы
-                </Button>
-              </div>
-              <div className="flex gap-8 pt-4">
-                <div>
-                  <div className="text-3xl font-bold text-primary">500+</div>
-                  <div className="text-sm text-muted-foreground">Учеников</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-primary">15+</div>
-                  <div className="text-sm text-muted-foreground">Преподавателей</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-primary">98%</div>
-                  <div className="text-sm text-muted-foreground">Довольных родителей</div>
-                </div>
-              </div>
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-white font-bold text-lg px-8 py-6 rounded-full"
+              >
+                See More
+              </Button>
             </div>
+
             <div className="relative">
-              <img 
-                src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/163df4af-f759-42b5-85e1-532d6bd0684c.jpg"
-                alt="Дети учатся программировать"
-                className="rounded-3xl shadow-2xl animate-float"
-              />
+              <div className="absolute top-16 left-8 w-40 h-40 animate-float" style={{ animationDelay: '0.5s' }}>
+                <img src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/1f2eac2c-19c1-4af8-b62a-6ae8aab4df2b.jpg" alt="Coding" className="w-full h-full object-contain drop-shadow-xl" />
+              </div>
+              
+              <div className="absolute top-4 right-20 w-32 h-32 animate-float" style={{ animationDelay: '1s' }}>
+                <Icon name="BookOpen" size={120} className="text-purple-400" />
+              </div>
+
+              <div className="absolute bottom-32 left-4 w-44 h-44 animate-float" style={{ animationDelay: '1.5s' }}>
+                <Icon name="Backpack" size={160} className="text-cyan-400" />
+              </div>
+
+              <div className="absolute bottom-16 left-48 w-36 h-36 animate-float" style={{ animationDelay: '0.8s' }}>
+                <Icon name="Mail" size={130} className="text-yellow-400" />
+              </div>
+
+              <div className="relative ml-32">
+                <div className="w-80 h-96 rounded-[8rem] overflow-hidden border-8 border-black shadow-2xl">
+                  <img 
+                    src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/8cf2b4e4-60f9-481e-95dd-169a08d2c83c.jpg"
+                    alt="Happy student"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="about" className="py-20 px-4">
+      <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
-            <h2 className="text-4xl font-bold mb-4">Почему Hello Code?</h2>
-            <p className="text-lg text-muted-foreground">
-              Мы делаем обучение программированию увлекательным и понятным для каждого ребёнка
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-5xl font-black mb-4 text-gray-800">Почему Hello Code?</h2>
+            <p className="text-xl text-muted-foreground">
+              Мы создаём идеальные условия для обучения программированию
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: "Sparkles",
-                title: "Игровой формат",
-                description: "Обучение через создание игр и интересных проектов"
-              },
-              {
-                icon: "Users",
-                title: "Маленькие группы",
-                description: "До 8 человек — каждому ребёнку уделяется внимание"
-              },
-              {
-                icon: "Trophy",
-                title: "Реальные проекты",
-                description: "Создавайте игры, сайты и приложения с нуля"
-              },
-              {
-                icon: "Clock",
-                title: "Гибкое расписание",
-                description: "Выбирайте удобное время для занятий онлайн"
-              },
-              {
-                icon: "Star",
-                title: "Опытные педагоги",
-                description: "Преподаватели с опытом работы с детьми от 5 лет"
-              },
-              {
-                icon: "Award",
-                title: "Сертификаты",
-                description: "Документ об окончании курса для портфолио"
-              }
-            ].map((feature, index) => (
-              <Card key={index} className="border-2 hover:border-primary transition-all hover:shadow-lg animate-fade-in">
+            {features.map((feature, index) => (
+              <Card key={index} className="border-4 border-gray-800 hover:shadow-2xl transition-all rounded-3xl bg-gradient-to-br from-orange-50 to-pink-50">
                 <CardHeader>
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4">
-                    <Icon name={feature.icon} className="text-white" size={28} />
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 border-4 border-gray-800">
+                    <Icon name={feature.icon} className="text-white" size={32} />
                   </div>
-                  <CardTitle>{feature.title}</CardTitle>
+                  <CardTitle className="text-2xl font-bold">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base">{feature.description}</CardDescription>
+                  <p className="text-base text-gray-700">{feature.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -237,46 +311,45 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="courses" className="py-20 px-4 bg-muted/30">
+      <section id="classes" className="py-20 px-4 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100">
         <div className="container mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
-            <h2 className="text-4xl font-bold mb-4">Наши курсы</h2>
-            <p className="text-lg text-muted-foreground">
-              Программы обучения для разных возрастов и уровней подготовки
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-5xl font-black mb-4 text-gray-800">Наши курсы</h2>
+            <p className="text-xl text-muted-foreground">
+              Программы для каждого возраста и уровня подготовки
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {courses.map((course, index) => (
-              <Card key={index} className="border-0 overflow-hidden hover:shadow-2xl transition-all animate-fade-in">
-                <div className={`${course.color} h-32 flex items-center justify-center`}>
-                  <Icon name={course.icon} className="text-white" size={64} />
+              <Card key={index} className="border-4 border-gray-800 hover:scale-105 transition-all rounded-3xl bg-white overflow-hidden">
+                <div className={`h-24 flex items-center justify-center ${
+                  index % 4 === 0 ? 'bg-gradient-to-br from-purple-400 to-pink-400' :
+                  index % 4 === 1 ? 'bg-gradient-to-br from-blue-400 to-cyan-400' :
+                  index % 4 === 2 ? 'bg-gradient-to-br from-orange-400 to-red-400' :
+                  'bg-gradient-to-br from-green-400 to-emerald-400'
+                }`}>
+                  <Icon name={course.icon} className="text-white" size={48} />
                 </div>
                 <CardHeader>
                   <div className="flex justify-between items-start mb-2">
-                    <CardTitle className="text-2xl">{course.title}</CardTitle>
-                    <Badge variant="secondary">{course.age}</Badge>
+                    <CardTitle className="text-xl font-bold">{course.title}</CardTitle>
+                    <Badge className="bg-secondary text-white border-2 border-gray-800">{course.age}</Badge>
                   </div>
-                  <CardDescription className="text-base">{course.description}</CardDescription>
+                  <CardDescription className="text-base font-medium">{course.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-center gap-2">
-                      <Icon name="Check" className="text-primary" size={20} />
-                      <span>16 занятий по 60 минут</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Icon name="Check" className="text-primary" size={20} />
-                      <span>Личный проект в портфолио</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Icon name="Check" className="text-primary" size={20} />
-                      <span>Сертификат об окончании</span>
-                    </li>
-                  </ul>
+                <CardContent className="space-y-2">
+                  <div className="flex items-center gap-2 text-sm">
+                    <Icon name="Clock" size={16} className="text-primary" />
+                    <span>{course.duration}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Icon name="BookOpen" size={16} className="text-primary" />
+                    <span>{course.lessons}</span>
+                  </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90">
-                    Подробнее о курсе
+                  <Button className="w-full bg-gradient-to-r from-primary to-orange-500 hover:opacity-90 font-bold border-2 border-gray-800 rounded-full">
+                    Узнать больше
                   </Button>
                 </CardFooter>
               </Card>
@@ -285,87 +358,73 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="teachers" className="py-20 px-4">
+      <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
-            <h2 className="text-4xl font-bold mb-4">Наши преподаватели</h2>
-            <p className="text-lg text-muted-foreground">
-              Опытные специалисты, которые любят детей и своё дело
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {teachers.map((teacher, index) => (
-              <Card key={index} className="border-2 hover:border-primary transition-all hover:shadow-lg animate-fade-in">
-                <CardHeader>
-                  <img 
-                    src={teacher.image}
-                    alt={teacher.name}
-                    className="w-full h-64 object-cover rounded-xl mb-4"
-                  />
-                  <CardTitle className="text-2xl">{teacher.name}</CardTitle>
-                  <CardDescription className="text-base">
-                    <div className="font-semibold text-primary mt-1">{teacher.role}</div>
-                    <div className="flex items-center gap-2 mt-2">
-                      <Icon name="Briefcase" size={16} />
-                      <span>{teacher.experience}</span>
-                    </div>
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+          <div className="grid md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-6xl font-black text-primary mb-2">{stat.value}</div>
+                <div className="text-xl font-semibold text-gray-700">{stat.label}</div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="pricing" className="py-20 px-4 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+      <section id="pricing" className="py-20 px-4 bg-gradient-to-br from-orange-50 via-pink-50 to-purple-50">
         <div className="container mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
-            <h2 className="text-4xl font-bold mb-4">Тарифные планы</h2>
-            <p className="text-lg text-muted-foreground">
-              Выберите удобный пакет занятий для вашего ребёнка
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-5xl font-black mb-4 text-gray-800">Тарифные планы</h2>
+            <p className="text-xl text-muted-foreground">
+              Выберите удобный формат обучения для вашего ребёнка
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {plans.map((plan, index) => (
               <Card 
                 key={index} 
-                className={`border-2 hover:shadow-2xl transition-all animate-fade-in ${
-                  plan.popular ? 'border-primary shadow-xl scale-105' : ''
+                className={`border-4 border-gray-800 transition-all rounded-3xl overflow-hidden ${
+                  plan.popular ? 'scale-105 shadow-2xl' : 'hover:scale-105'
                 }`}
               >
                 {plan.popular && (
-                  <div className="bg-gradient-to-r from-primary to-accent text-white text-center py-2 font-semibold">
-                    Популярный выбор
+                  <div className="bg-gradient-to-r from-primary to-orange-500 text-white text-center py-3 font-bold text-lg border-b-4 border-gray-800">
+                    🔥 Самый популярный
                   </div>
                 )}
-                <CardHeader>
-                  <CardTitle className="text-2xl">{plan.name}</CardTitle>
+                <CardHeader className="bg-white">
+                  <CardTitle className="text-3xl font-black">{plan.name}</CardTitle>
                   <div className="mt-4">
-                    <span className="text-5xl font-bold text-primary">{plan.price}</span>
-                    <span className="text-muted-foreground ml-2">₽</span>
+                    {plan.price === "Бесплатно" ? (
+                      <span className="text-5xl font-black text-primary">{plan.price}</span>
+                    ) : (
+                      <>
+                        <span className="text-5xl font-black text-primary">{plan.price}</span>
+                        <span className="text-2xl text-muted-foreground ml-2">₽</span>
+                      </>
+                    )}
                   </div>
-                  <CardDescription className="text-base">{plan.period}</CardDescription>
+                  <CardDescription className="text-lg font-semibold mt-2">{plan.period}</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="bg-gradient-to-br from-orange-50 to-pink-50 pt-6">
                   <ul className="space-y-3">
                     {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
+                      <li key={idx} className="flex items-start gap-3">
                         <Icon name="Check" className="text-primary mt-1 flex-shrink-0" size={20} />
-                        <span>{feature}</span>
+                        <span className="font-medium">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </CardContent>
-                <CardFooter>
+                <CardFooter className="bg-white">
                   <Button 
-                    className={`w-full ${
+                    className={`w-full font-bold text-lg py-6 rounded-full border-2 border-gray-800 ${
                       plan.popular 
-                        ? 'bg-gradient-to-r from-primary to-accent hover:opacity-90' 
-                        : ''
+                        ? 'bg-gradient-to-r from-primary to-orange-500 hover:opacity-90 text-white' 
+                        : 'bg-white hover:bg-gray-50 text-gray-800'
                     }`}
-                    variant={plan.popular ? 'default' : 'outline'}
                   >
-                    Выбрать тариф
+                    {plan.cta}
                   </Button>
                 </CardFooter>
               </Card>
@@ -374,27 +433,28 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="reviews" className="py-20 px-4">
+      <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
-            <h2 className="text-4xl font-bold mb-4">Отзывы родителей</h2>
-            <p className="text-lg text-muted-foreground">
-              Узнайте, что говорят о нас родители наших учеников
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-5xl font-black mb-4 text-gray-800">Отзывы родителей</h2>
+            <p className="text-xl text-muted-foreground">
+              Что говорят о нас родители наших учеников
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {reviews.map((review, index) => (
-              <Card key={index} className="border-2 hover:border-primary transition-all animate-fade-in">
+              <Card key={index} className="border-4 border-gray-800 hover:shadow-xl transition-all rounded-3xl bg-gradient-to-br from-yellow-50 to-orange-50">
                 <CardHeader>
-                  <div className="flex gap-1 mb-2">
+                  <div className="flex gap-1 mb-3">
                     {[...Array(review.rating)].map((_, i) => (
-                      <Icon key={i} name="Star" className="text-yellow-400 fill-yellow-400" size={20} />
+                      <Icon key={i} name="Star" className="text-yellow-400 fill-yellow-400" size={24} />
                     ))}
                   </div>
-                  <CardTitle className="text-xl">{review.name}</CardTitle>
+                  <CardTitle className="text-xl font-bold">{review.name}</CardTitle>
+                  <CardDescription className="text-sm font-semibold">{review.role}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{review.text}</p>
+                  <p className="text-gray-700 italic">"{review.text}"</p>
                 </CardContent>
               </Card>
             ))}
@@ -402,129 +462,129 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contacts" className="py-20 px-4 bg-muted/30">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl font-bold mb-4">Свяжитесь с нами</h2>
-            <p className="text-lg text-muted-foreground">
-              Ответим на все ваши вопросы и поможем выбрать курс
+      <section id="contact" className="py-20 px-4 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100">
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-black mb-4 text-gray-800">Запишитесь на пробный урок</h2>
+            <p className="text-xl text-muted-foreground">
+              Бесплатное первое занятие для знакомства с платформой
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card className="border-2">
-              <CardHeader>
-                <CardTitle>Контактная информация</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <Icon name="Phone" className="text-primary mt-1" size={20} />
-                  <div>
-                    <div className="font-semibold">Телефон</div>
-                    <div className="text-muted-foreground">+7 (999) 123-45-67</div>
+          <Card className="border-4 border-gray-800 rounded-3xl overflow-hidden">
+            <div className="grid md:grid-cols-2">
+              <div className="bg-gradient-to-br from-primary to-orange-500 p-8 text-white">
+                <h3 className="text-3xl font-bold mb-6">Контактная информация</h3>
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <Icon name="Phone" size={24} />
+                    <div>
+                      <div className="font-bold text-lg">Телефон</div>
+                      <div className="text-pink-100">+7 (999) 123-45-67</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <Icon name="Mail" size={24} />
+                    <div>
+                      <div className="font-bold text-lg">Email</div>
+                      <div className="text-pink-100">hello@hellocode.ru</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <Icon name="MessageCircle" size={24} />
+                    <div>
+                      <div className="font-bold text-lg">Telegram</div>
+                      <div className="text-pink-100">@hellocode_support</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <Icon name="Clock" size={24} />
+                    <div>
+                      <div className="font-bold text-lg">Часы работы</div>
+                      <div className="text-pink-100">Пн-Вс: 10:00 - 20:00</div>
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Icon name="Mail" className="text-primary mt-1" size={20} />
-                  <div>
-                    <div className="font-semibold">Email</div>
-                    <div className="text-muted-foreground">hello@hellocode.ru</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Icon name="MessageCircle" className="text-primary mt-1" size={20} />
-                  <div>
-                    <div className="font-semibold">Telegram</div>
-                    <div className="text-muted-foreground">@hellocode_support</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Icon name="Clock" className="text-primary mt-1" size={20} />
-                  <div>
-                    <div className="font-semibold">Часы работы</div>
-                    <div className="text-muted-foreground">Пн-Вс: 10:00 - 20:00</div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="border-2">
-              <CardHeader>
-                <CardTitle>Запишитесь на пробный урок</CardTitle>
-              </CardHeader>
-              <CardContent>
+              </div>
+              <div className="bg-white p-8">
                 <div className="space-y-4">
                   <div>
-                    <label className="text-sm font-medium">Имя ребёнка</label>
+                    <label className="text-sm font-bold block mb-2">Имя ребёнка *</label>
                     <input 
                       type="text" 
                       placeholder="Введите имя"
-                      className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-3 border-2 border-gray-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-medium">Возраст</label>
+                    <label className="text-sm font-bold block mb-2">Возраст *</label>
                     <input 
                       type="number" 
-                      placeholder="Возраст ребёнка"
-                      className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                      placeholder="Сколько лет?"
+                      className="w-full px-4 py-3 border-2 border-gray-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-medium">Телефон родителя</label>
+                    <label className="text-sm font-bold block mb-2">Телефон родителя *</label>
                     <input 
                       type="tel" 
                       placeholder="+7 (___) ___-__-__"
-                      className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-3 border-2 border-gray-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-medium">Email</label>
+                    <label className="text-sm font-bold block mb-2">Email *</label>
                     <input 
                       type="email" 
                       placeholder="your@email.com"
-                      className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-3 border-2 border-gray-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
-                  <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90">
-                    Записаться на пробный урок
+                  <Button className="w-full bg-gradient-to-r from-primary to-orange-500 hover:opacity-90 font-bold text-lg py-6 rounded-full border-2 border-gray-800">
+                    Записаться бесплатно 🚀
                   </Button>
+                  <p className="text-xs text-center text-gray-600">
+                    Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                  </p>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
+              </div>
+            </div>
+          </Card>
         </div>
       </section>
 
-      <footer className="bg-foreground text-white py-12 px-4">
+      <footer className="bg-gray-900 text-white py-12 px-4">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <div className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <div className="text-3xl font-black mb-4 bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent">
                 Hello Code
               </div>
               <p className="text-gray-400">
-                Онлайн-школа программирования для детей от 7 до 14 лет
+                Онлайн-школа программирования для детей от 5 до 14 лет
               </p>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Курсы</h3>
+              <h3 className="font-bold mb-4 text-lg">Курсы</h3>
               <ul className="space-y-2 text-gray-400">
-                <li>Scratch</li>
-                <li>Python</li>
-                <li>Веб-разработка</li>
+                <li className="hover:text-white cursor-pointer">Scratch Junior</li>
+                <li className="hover:text-white cursor-pointer">Scratch</li>
+                <li className="hover:text-white cursor-pointer">Python</li>
+                <li className="hover:text-white cursor-pointer">Веб-разработка</li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Компания</h3>
+              <h3 className="font-bold mb-4 text-lg">Компания</h3>
               <ul className="space-y-2 text-gray-400">
-                <li>О школе</li>
-                <li>Преподаватели</li>
-                <li>Отзывы</li>
-                <li>Контакты</li>
+                <li className="hover:text-white cursor-pointer">О школе</li>
+                <li className="hover:text-white cursor-pointer">Преподаватели</li>
+                <li className="hover:text-white cursor-pointer">Отзывы</li>
+                <li className="hover:text-white cursor-pointer">Контакты</li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Социальные сети</h3>
+              <h3 className="font-bold mb-4 text-lg">Социальные сети</h3>
               <div className="flex gap-4">
+                <Icon name="Facebook" size={24} className="text-gray-400 hover:text-white cursor-pointer" />
                 <Icon name="Instagram" size={24} className="text-gray-400 hover:text-white cursor-pointer" />
                 <Icon name="Youtube" size={24} className="text-gray-400 hover:text-white cursor-pointer" />
                 <Icon name="MessageCircle" size={24} className="text-gray-400 hover:text-white cursor-pointer" />
