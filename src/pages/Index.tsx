@@ -258,11 +258,11 @@ const Index = () => {
               <span className="sm:hidden">HC</span>
             </div>
             <nav className="hidden lg:flex gap-4 xl:gap-8 items-center">
-              <a href="#home" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105 text-sm xl:text-base">Home</a>
-              <a href="#classes" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105 text-sm xl:text-base">Classes</a>
-              <a href="#about" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105 underline decoration-4 text-sm xl:text-base">About Us</a>
-              <a href="#gallery" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105 text-sm xl:text-base">Gallery</a>
-              <a href="#contact" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105 text-sm xl:text-base">Contact</a>
+              <a href="#home" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105 hover:underline decoration-4 text-sm xl:text-base">Home</a>
+              <a href="#classes" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105 hover:underline decoration-4 text-sm xl:text-base">Classes</a>
+              <a href="#about" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105 hover:underline decoration-4 text-sm xl:text-base">About Us</a>
+              <a href="#gallery" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105 hover:underline decoration-4 text-sm xl:text-base">Gallery</a>
+              <a href="#contact" className="text-white hover:text-pink-100 transition-all font-semibold hover:scale-105 hover:underline decoration-4 text-sm xl:text-base">Contact</a>
             </nav>
             <Button className="lg:hidden bg-primary hover:bg-primary/90 text-white font-bold text-sm px-4 py-2 rounded-full border-2 border-black">
               Меню
@@ -313,9 +313,10 @@ const Index = () => {
               </p>
               <Button 
                 size="lg" 
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 className="bg-primary hover:bg-primary/90 text-white font-bold text-base md:text-xl px-8 md:px-12 py-5 md:py-7 rounded-full border-3 md:border-4 border-black shadow-xl hover:scale-105 transition-all"
               >
-                See More
+                Записаться бесплатно
               </Button>
             </div>
 
@@ -675,6 +676,7 @@ const Index = () => {
                 </CardContent>
                 <CardFooter className="bg-white pt-6">
                   <Button 
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                     className={`w-full font-bold text-xl py-7 rounded-full border-4 border-gray-800 hover:scale-105 transition-all ${
                       plan.popular 
                         ? 'bg-gradient-to-r from-primary to-orange-500 hover:opacity-90 text-white shadow-xl' 
