@@ -371,6 +371,93 @@ const Index = () => {
         </div>
       </section>
 
+      <section id="gallery" className="py-20 px-4 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+        <div className="container mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-5xl font-black mb-4 text-gray-800">Галерея работ учеников</h2>
+            <p className="text-xl text-muted-foreground">
+              Посмотрите, какие крутые проекты создают наши студенты!
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <Card className="border-4 border-gray-800 rounded-3xl overflow-hidden hover:scale-105 transition-all">
+              <img 
+                src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/9e261ce0-2dc6-4546-920e-bf5fd25d8243.jpg"
+                alt="Scratch game"
+                className="w-full h-56 object-cover"
+              />
+              <CardHeader className="bg-white">
+                <CardTitle className="text-xl font-bold">Игра "Космическое приключение"</CardTitle>
+                <CardDescription>Создана на Scratch · Артём, 9 лет</CardDescription>
+              </CardHeader>
+            </Card>
+            <Card className="border-4 border-gray-800 rounded-3xl overflow-hidden hover:scale-105 transition-all">
+              <img 
+                src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/8b165a4e-2aa8-4fa0-9daf-6f900c081e5b.jpg"
+                alt="Website"
+                className="w-full h-56 object-cover"
+              />
+              <CardHeader className="bg-white">
+                <CardTitle className="text-xl font-bold">Сайт о любимых животных</CardTitle>
+                <CardDescription>HTML/CSS · София, 12 лет</CardDescription>
+              </CardHeader>
+            </Card>
+            <Card className="border-4 border-gray-800 rounded-3xl overflow-hidden hover:scale-105 transition-all">
+              <img 
+                src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/b2e8b4f7-7056-4c9e-813c-5cf6af45fffb.jpg"
+                alt="Python code"
+                className="w-full h-56 object-cover"
+              />
+              <CardHeader className="bg-white">
+                <CardTitle className="text-xl font-bold">Игра "Змейка" на Python</CardTitle>
+                <CardDescription>Python · Максим, 11 лет</CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card className="border-4 border-gray-800 rounded-3xl overflow-hidden hover:scale-105 transition-all">
+              <img 
+                src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/9e3842c9-e584-43c5-8e1c-8b5810745b1a.jpg"
+                alt="Mobile app"
+                className="w-full h-56 object-cover"
+              />
+              <CardHeader className="bg-white">
+                <CardTitle className="text-xl font-bold">Мобильное приложение-квест</CardTitle>
+                <CardDescription>App Design · Алиса, 13 лет</CardDescription>
+              </CardHeader>
+            </Card>
+            <Card className="border-4 border-gray-800 rounded-3xl overflow-hidden hover:scale-105 transition-all">
+              <img 
+                src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/36b4b239-c0be-482a-9211-8ce50f111341.jpg"
+                alt="Game character"
+                className="w-full h-56 object-cover"
+              />
+              <CardHeader className="bg-white">
+                <CardTitle className="text-xl font-bold">Дизайн персонажа для игры</CardTitle>
+                <CardDescription>Game Design · Даша, 10 лет</CardDescription>
+              </CardHeader>
+            </Card>
+            <Card className="border-4 border-gray-800 rounded-3xl overflow-hidden hover:scale-105 transition-all">
+              <img 
+                src="https://cdn.poehali.dev/projects/5badf01e-c7f1-4012-a914-9d72e4a7ea48/files/a47279de-6e38-46d4-bc7b-d7ec06fe1421.jpg"
+                alt="Hackathon"
+                className="w-full h-56 object-cover"
+              />
+              <CardHeader className="bg-white">
+                <CardTitle className="text-xl font-bold">Хакатон Hello Code 2024</CardTitle>
+                <CardDescription>Командный проект · Группа 12-14 лет</CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+          <div className="text-center mt-12">
+            <Button size="lg" className="bg-gradient-to-r from-primary to-orange-500 hover:opacity-90 font-bold text-lg px-10 py-6 rounded-full border-2 border-gray-800">
+              Смотреть все проекты
+              <Icon name="ArrowRight" className="ml-2" size={20} />
+            </Button>
+          </div>
+        </div>
+      </section>
+
       <section id="pricing" className="py-20 px-4 bg-gradient-to-br from-orange-50 via-pink-50 to-purple-50">
         <div className="container mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
